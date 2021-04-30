@@ -50,28 +50,24 @@ class Game
     end
   end
 
-  def new_round
+ def new_round
     print "Voulez-vous faire une nouvelle partie (O/N) ? "
-    
-      choix= gets.chomp.upcase       
-      
+    choix = gets.chomp.upcase
       if choix == 'O'
         @board = Board.new
         @status = "en cours"
         puts '-' * 20
         puts "Commençons une nouvelle partie !"
         Show.new.show_board(@board)
-       
+        #break
       elsif choix == 'N'
         puts "A bientot"
         exit
+      else
+      puts "choix erroné"
+     new_round
       end
-      
-      elsif
-      new_round
-      end
-
-  end
+ end
 
   def game_end
     if @status == 'en cours'
